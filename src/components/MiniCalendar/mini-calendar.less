@@ -1,0 +1,45 @@
+.mini-calendar {
+  padding: 0 20px !important;
+  .noselect();
+  .ant-picker-panel {
+    border-top: none !important; 
+    font-size: 12px;
+    .ant-picker-content {
+      width: auto;
+      height: auto;
+      th {
+        width: 32px;
+      }
+    }
+  }
+}
+
+.mini-calendar-header {
+  padding: 0 5px 0 9px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  &-date {
+    font-weight: 500;
+  }
+  &-arrows {
+    height: 22px;
+  }
+  &-arrow {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 3px;
+    &:hover {
+      background: @item-hover-bg;
+    }
+    i {
+      font-size: 18px;
+    }
+  }
+}
