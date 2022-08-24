@@ -1,0 +1,47 @@
+.color {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.colorPicker {
+  :global {
+    .ant-popover-arrow {
+      left: -3px !important;
+      bottom: 1px !important;
+    }
+    .ant-popover-inner-content {
+      padding: 12px;
+    }
+    .ant-popover-inner {
+      border-radius: 5px;
+    }
+  }
+}
+
+.colorWrapper {
+  margin-bottom: 10px;
+  :global {
+    .react-colorful__pointer {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.standartColors {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 200px;
+  span {
+    display: block;
+    height: 18px;
+    width: 18px;
+    margin: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

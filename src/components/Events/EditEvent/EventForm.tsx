@@ -64,12 +64,14 @@ export const EventForm: FC<EventFormProps> = memo(({ event, onSubmit }) => {
           control={control}
           rules={{ required: true }}
           render={({ field }) => (
-            <Input
-              className={s.name}
-              placeholder='Добавьте название'
-              autoComplete='off'
-              {...field}
-            />
+            <div className={s.item}>
+              <Input
+                className={s.name}
+                placeholder='Добавьте название'
+                autoComplete='off'
+                {...field}
+              />
+            </div>
           )}
         />
 
@@ -78,11 +80,13 @@ export const EventForm: FC<EventFormProps> = memo(({ event, onSubmit }) => {
           control={control}
           rules={{ required: true }}
           render={({ field }) => (
-            <DateTimePicker
-              timeType={timeType}
-              onChangeTimeType={value => setValue('withoutTime', value)}
-              {...field}
-            />
+            <div className={s.item}>
+              <DateTimePicker
+                timeType={timeType}
+                onChangeTimeType={value => setValue('withoutTime', value)}
+                {...field}
+              />
+            </div>
           )}
         />
 
@@ -90,11 +94,13 @@ export const EventForm: FC<EventFormProps> = memo(({ event, onSubmit }) => {
           name='description'
           control={control}
           render={({ field }) => (
-            <Input.TextArea
-              className={s.description}
-              placeholder='Добавьте описание'
-              {...field}
-            />
+            <div className={s.item}>
+              <Input.TextArea
+                className={s.description}
+                placeholder='Добавьте описание'
+                {...field}
+              />
+            </div>
           )}
         />
 
@@ -102,15 +108,17 @@ export const EventForm: FC<EventFormProps> = memo(({ event, onSubmit }) => {
           name='categoryId'
           control={control}
           render={({ field }) => (
-            <Select
-              className={s.categories}
-              loading={isLoading}
-              {...field}
-            >
-              {categories?.map(cat =>
-                <Select.Option key={cat.id} value={cat.id}>{cat.name}</Select.Option>
-              )}
-            </Select>
+            <div className={s.item}>
+              <Select
+                className={s.categories}
+                loading={isLoading}
+                {...field}
+              >
+                {categories?.map(cat =>
+                  <Select.Option key={cat.id} value={cat.id}>{cat.name}</Select.Option>
+                )}
+              </Select>
+            </div>
           )}
         />
 

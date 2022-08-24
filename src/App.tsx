@@ -1,11 +1,9 @@
 import { FC } from 'react'
-import { AuthRefreshComponent, AppProvider } from '@/components/AppProvider'
+import { AppProvider } from '@/components/providers/AppProvider'
 
 const App: FC = () => {
 	return (
-		<AppProvider>
-			<AuthRefreshComponent />
-		</AppProvider>
+		<AppProvider />
 	)
 }
 

@@ -33,13 +33,18 @@ export const Day: FC = () => {
       visible={isDayModalVisible}
       onCancel={closeDayModal}
     >
-      {!!eventsWithoutTime.length && <EventListDnD
-        className={s.eventsWithoutTime}
-        events={eventsWithoutTime}
-      />}
-      {!!eventsWithTime.length && <EventList
-        events={eventsWithTime}
-      />}
+      {!!eventsWithoutTime.length && (
+        <EventListDnD
+          className={s.list}
+          events={eventsWithoutTime}
+        />
+      )}
+      {!!eventsWithTime.length && (
+        <EventList
+          className={s.list}
+          events={eventsWithTime}
+        />
+      )}
     </CustomModal>
   )
 }

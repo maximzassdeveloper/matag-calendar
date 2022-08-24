@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd'
 import classNames from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 
-import { ColorSelect } from './ColorSelect'
+import { ColorSelect } from '@/components/generetic'
 import { categoryApi } from '@/store/api/category.api'
 import { ICategory } from '@/types/event.types'
 import s from './create-category.module.less'
@@ -46,7 +46,7 @@ export const CreateCategory: FC<CreateCategoryProps> = ({
         >
 
           <Form.Item name='color'>
-            <ColorSelect />
+            <ColorSelect className={s.color} />
           </Form.Item>
 
           <Form.Item
