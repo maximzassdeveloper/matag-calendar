@@ -1,0 +1,41 @@
+.calendar {
+	position: relative;
+	height: 250px;
+	overflow: hidden;
+	z-index: 2;
+	
+	will-change: auto;
+	transform: none;
+	opacity: 1;
+	transition: opacity .1s;
+	
+	&.animatingNext {
+		transform: translateX(20px);
+		opacity: 0;
+		transition: .1s
+	}
+
+	&.animatingPrev {
+		transform: translateX(-20px);
+		opacity: 0;
+		transition: .1s
+	}
+	
+	.noselect();
+}
+
+.weekDays {
+	background: #fff;
+	width: 100%;
+	display: flex;
+	height: 20px;
+	span {
+		flex: 1 1 0%;
+		padding-top: 5px;
+		color: @grey-2;
+		font-weight: 500;
+		border-right: 1px solid @border-color-base;
+		text-align: center;
+		font-size: 12px;
+	}
+}

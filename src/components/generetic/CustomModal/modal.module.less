@@ -1,0 +1,47 @@
+.customModal {
+  width: 480px !important;
+
+  &.noTitle {
+    :global {
+      .ant-modal-title {
+        opacity: 0;
+      }
+    }
+  }
+
+  :global {
+    .ant-modal-body {
+      padding: 18px 24px;
+    }
+
+    .ant-modal-content {
+      border-radius: 7px;
+    }
+    .ant-modal-header {
+      padding: 7px 60px 7px 24px;
+      height: 36px;
+      border-bottom: none;
+      background: @item-hover-bg-2;
+      border-radius: 7px 7px 0 0;
+    }
+    .ant-modal-title {
+      font-size: 14px;
+      color: @grey-2;
+      display: flex;
+    }
+
+    .ant-modal-close {
+      height: 36px;
+      transition: .2s;
+      border-top-right-radius: 7px;
+      &:hover {
+        background: @item-hover-bg-3;
+      }
+    }
+    .ant-modal-close-x {
+      height: 36px;
+      line-height: 40px;
+      color: @grey-2;
+    }
+  }
+}

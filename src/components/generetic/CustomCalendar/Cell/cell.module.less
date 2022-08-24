@@ -1,0 +1,62 @@
+.cell {
+	position: relative;
+	flex: 1 1 0%;
+	text-align: center;
+	background: #fff;
+	border-right: 1px solid @border-color-base;
+	border-bottom: 1px solid @border-color-base;
+	&.today {
+		.day {
+			background: @primary-color;
+			color: #fff;
+		}
+	}
+	&.notCurMonth {
+		background: @item-hover-bg;
+		.day {
+			color: @grey-2;
+		}
+	}
+	&.hasEvents {
+		padding: 0 8px;
+	}
+}
+
+.createEventPlace {
+	height: 100%;
+	cursor: pointer;
+}
+
+.events {
+	position: absolute;
+	max-height: calc(100% - 40px);
+	width: calc(100% - 10px);
+	left: 7px;
+	top: 30px;
+	overflow: auto;
+	.custom-scrollbar
+}
+
+.day {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  margin: 2px auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 26px;
+  color: @grey-1;
+  
+  transition: .2s;
+  cursor: pointer;
+
+  &:hover {
+    background: @item-hover-bg-2;
+  }
+}

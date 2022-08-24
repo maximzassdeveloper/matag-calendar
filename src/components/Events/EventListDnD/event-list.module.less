@@ -1,0 +1,16 @@
+.droppable {
+  width: 300px;
+  min-height: 60px;
+  border-radius: 5px;
+  padding: 10px 0px 0px;
+  transition: .2s;
+  &.isActive {
+    background: @item-hover-bg;
+  }
+  &.isOver {
+    background: @item-hover-bg-2;
+    .draggable {
+      box-shadow: 0 0 10px rgba(#000, .1);
+    }
+  }
+}

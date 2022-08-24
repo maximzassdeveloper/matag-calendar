@@ -1,10 +1,12 @@
 import { FC } from 'react'
-import { Wrapper } from './components/Layout'
+import { AuthRefreshComponent, AppProvider } from '@/components/AppProvider'
 
 const App: FC = () => {
-  return (
-    <Wrapper />
-  )
+	return (
+		<AppProvider>
+			<AuthRefreshComponent />
+		</AppProvider>
+	)
 }
 
 export default App

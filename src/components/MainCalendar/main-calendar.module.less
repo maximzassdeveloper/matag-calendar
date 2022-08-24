@@ -1,0 +1,84 @@
+.calendar {
+	position: relative;
+	height: calc(100vh - @layout-header-height);
+	overflow: hidden;
+	z-index: 2;
+	
+	will-change: auto;
+	transform: none;
+	opacity: 1;
+	transition: opacity .1s;
+	
+	&.animatingNext {
+		transform: translateX(20px);
+		opacity: 0;
+		transition: .1s
+	}
+
+	&.animatingPrev {
+		transform: translateX(-20px);
+		opacity: 0;
+		transition: .1s
+	}
+	
+	.noselect();
+}
+
+.weekDays {
+	background: #fff;
+	width: 100%;
+	display: flex;
+	height: 20px;
+	span {
+		flex: 1 1 0%;
+		padding-top: 5px;
+		color: @grey-2;
+		font-weight: 500;
+		border-right: 1px solid @border-color-base;
+		text-align: center;
+		font-size: 12px;
+	}
+}
+
+.rows {
+	height: calc(100% - 20px);
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	flex: 1 1 0%;
+	display: flex;
+}
+
+.cell {
+	flex: 1 1 0%;
+	text-align: center;
+	background: #fff;
+	border-right: 1px solid @border-color-base;
+	border-bottom: 1px solid @border-color-base;
+	&Day {
+		display: block;
+		margin: 4px auto;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 22px;
+		color: @grey-1;
+	}
+	&.active {
+		.cellDay {
+			background: @primary-color;
+			color: #fff;
+		}
+	}
+	&.notCurMonth {
+		background: @item-hover-bg;
+		.cellDay {
+			color: @grey-2;
+		}
+	}
+}

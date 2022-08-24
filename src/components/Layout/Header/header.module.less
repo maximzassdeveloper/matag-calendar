@@ -1,0 +1,45 @@
+.header {
+	display: flex;
+	align-items: center;
+	line-height: normal !important;
+	border-bottom: 1px solid @border-color-base;
+	h4 {
+		flex: 0 1 261px;
+		margin-bottom: 0 !important;
+	}
+}
+
+.user {
+	cursor: pointer;
+	margin-left: auto;
+
+	&Popover {
+		z-index: 999 !important;
+		width: 140px;
+
+		:global {
+			.ant-popover-arrow {
+				right: 4px !important;
+			}
+			.ant-popover-inner-content {
+				padding: 0px;
+			}
+		}
+	}
+
+	&Menu {
+		&Item {
+			display: block;
+			width: 100%;
+			padding: 8px 16px;
+			cursor: pointer;
+			&:hover {
+				background: @item-hover-bg;
+			}
+		}
+	}
+
+	.avatar {
+		background: #ffbf00;
+	}
+}

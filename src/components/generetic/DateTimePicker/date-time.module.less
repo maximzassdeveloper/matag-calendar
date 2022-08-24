@@ -1,0 +1,49 @@
+.dateTime {
+  display: flex;
+}
+
+.item {
+  margin-right: 15px;
+}
+
+.itemTitle {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.timeItem {
+  :global {
+    .ant-form-item {
+      margin-bottom: 0 !important;
+    }
+    .ant-form-item-control-input {
+      min-height: auto !important;
+    }
+  }
+}
+
+.timeTitle {
+  display: block !important;
+  font-size: 14px !important;
+  width: max-content !important;
+  margin-bottom: 2px !important;
+  :global {
+    *, *:after {
+      line-height: 1.5715 !important;
+    }
+    .ant-select-selector {
+      padding-left: 0 !important;
+      height: auto !important;
+    }
+    .ant-select-arrow {
+      svg {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.timeDropdown {
+  width: 180px !important;
+}

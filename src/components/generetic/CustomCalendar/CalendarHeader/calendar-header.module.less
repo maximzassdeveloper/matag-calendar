@@ -1,0 +1,36 @@
+.header {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  .noselect()
+}
+
+.date {
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 15px;
+}
+.arrows {
+  height: 28px;
+  margin-top: 4px;
+}
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: .2s;
+  border-radius: 3px;
+  &:hover {
+    background: @item-hover-bg;
+  }
+  i {
+    font-size: 18px;
+    color: @grey-2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

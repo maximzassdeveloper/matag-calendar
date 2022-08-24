@@ -1,0 +1,37 @@
+.wrapper {
+	background: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	max-width: 450px !important;
+	padding: 0 !important;
+
+	:global {
+		.ant-tabs-nav-list {
+			width: 100%;
+		}
+		.ant-tabs-tab {
+			width: 100%;
+			margin: 0 !important;
+			border: none !important;
+			border-bottom: 2px solid transparent !important;
+
+			&.ant-tabs-tab-active {
+				background: rgba(@primary-color, 0.1) !important;
+				border-bottom: 2px solid @primary-color !important;
+			}
+		}
+	}
+}
+
+.title {
+	font-size: 24px !important;
+	margin-bottom: 20px !important;
+}
+
+.form {
+	padding-top: 15px;
+
+	.button {
+		margin-bottom: 10px !important;
+	}
+}
