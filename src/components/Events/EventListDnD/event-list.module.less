@@ -2,15 +2,54 @@
   width: 300px;
   min-height: 60px;
   border-radius: 5px;
-  padding: 10px 0px 0px;
   transition: .2s;
-  &.isActive {
-    background: @item-hover-bg;
+  &.isActive, &:hover {
+    .icon {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .item {
+      margin-left: 25px;
+    }
   }
   &.isOver {
-    background: @item-hover-bg-2;
-    .draggable {
+    background: @item-hover-bg;
+    .item {
       box-shadow: 0 0 10px rgba(#000, .1);
     }
   }
+}
+
+
+.draggable {
+  position: relative;
+  padding-bottom: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100% - 10px);
+  display: flex;
+  align-items: center;
+  color: @grey-2;
+  padding-right: 5px;
+  border-radius: 5px;
+  transition: .2s;
+  transform: translateX(-100%);
+  opacity: 0;
+  &:hover {
+    background: @item-hover-bg;
+  }
+  i {
+    font-size: 20px;
+  }
+}
+
+.item {
+  margin-bottom: 0px;
+  width: 100%;
 }

@@ -1,6 +1,7 @@
-import { FC, useMemo } from 'react'
+import { FC, memo, useMemo } from 'react'
 import { CustomModal } from '@/components/generetic'
 import { EventList, EventListDnD } from '@/components/Events'
+import { AddEvent } from './AddEvent'
 import { localeFormat } from '@/utils/locale-date-fns'
 import { getCalendar } from '@/store/selectors'
 import { eventApi } from '@/store/api/event.api'
@@ -12,7 +13,7 @@ const convertData = (data: Date) => {
   return localeFormat(data, 'yyyy-MM-dd')
 }
 
-export const Day: FC = () => {
+export const Day: FC = memo(() => {
 
   const { isDayModalVisible, selectedDate } = useTypedSelector(getCalendar)
   const { closeDayModal } = useActions()
@@ -34,17 +35,24 @@ export const Day: FC = () => {
       onCancel={closeDayModal}
     >
       {!!eventsWithoutTime.length && (
-        <EventListDnD
-          className={s.list}
-          events={eventsWithoutTime}
-        />
+        <div className={s.listWrapper}>
+          <EventListDnD
+            className={s.list}
+            events={eventsWithoutTime}
+          />
+          <h3>Весь день</h3>
+        </div>
       )}
       {!!eventsWithTime.length && (
-        <EventList
-          className={s.list}
-          events={eventsWithTime}
-        />
+        <div className={s.listWrapper}>
+          <EventList
+            className={s.list}
+            events={eventsWithTime}
+          />
+          <h3>Расписание</h3>
+        </div>
       )}
+      <AddEvent date={selectedDate} />
     </CustomModal>
   )
-}
+})

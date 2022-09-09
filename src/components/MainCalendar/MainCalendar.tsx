@@ -8,24 +8,16 @@ import styles from './main-calendar.module.less'
 
 export const MainCalendar: FC = memo(() => {
 
-	const { data: events } = eventApi.useGetEventsQuery()
 	const { calendarDate } = useTypedSelector(getCalendar)
-	const {
-		openEventModal,
-		changeSelectedDate,
-		changeEventModalType,
-		openDayModal
-	} = useActions()
+	const { data: events } = eventApi.useGetEventsQuery({ catsFilter: true })
+	const { openEventCreateModal, openDayModal } = useActions()
 
 	const cellClick = (date: Date) => {
-		openEventModal()
-		changeSelectedDate(date)
-		changeEventModalType('create')
+		openEventCreateModal(date)
 	}
 
 	const cellDayClick = (date: Date) => {
-		openDayModal()
-		changeSelectedDate(date)
+		openDayModal(date)
 	}
 
 	return (

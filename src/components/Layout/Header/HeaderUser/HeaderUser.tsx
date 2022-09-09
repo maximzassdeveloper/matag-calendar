@@ -4,7 +4,7 @@ import { AuthWrapper } from '@/components/Auth/AuthWrapper'
 import { HeaderUserMenu } from './HeaderUserMenu'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { getUser } from '@/store/selectors'
-import s from './header.module.less'
+import s from './user.module.less'
 
 export const HeaderUser: FC = memo(() => {
 	const { user, isAuth } = useTypedSelector(getUser)

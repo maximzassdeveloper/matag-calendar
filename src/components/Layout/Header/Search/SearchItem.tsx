@@ -1,23 +1,23 @@
-import { FC } from 'react'
-import { IEvent } from '@/types/event.types'
 import { useActions } from '@/hooks/useActions'
-import s from './cell-event.module.less'
+import { IEvent } from '@/types/event.types'
+import { FC } from 'react'
+import s from './search.module.less'
 
-interface CellEventProps {
+interface SearchItemProps {
   event: IEvent
 }
 
-export const CellEvent: FC<CellEventProps> = ({ event }) => {
+export const SearchItem: FC<SearchItemProps> = ({ event }) => {
 
   const { openEventPreviewModal } = useActions()
 
-  return <>
+  return (
     <div
-      className={s.cellEvent}
+      className={s.item}
       style={{ background: event.category.color }}
       onClick={() => openEventPreviewModal(event)}
     >
       {event.name}
     </div>
-  </>
+  )
 }

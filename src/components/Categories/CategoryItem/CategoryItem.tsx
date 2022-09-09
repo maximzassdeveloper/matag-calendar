@@ -1,9 +1,9 @@
 import { FC, useState } from 'react'
-import { Popover } from 'antd'
 import classNames from 'classnames'
 import { CreateCategory } from '../CreateCategory/CreateCategory'
 import { categoryApi } from '@/store/api/category.api'
 import { ICategory } from '@/types/event.types'
+import { ActionsPopover } from '@/components/generetic'
 import s from './category-item.module.less'
 
 interface CategoryProps {
@@ -12,15 +12,21 @@ interface CategoryProps {
 
 export const CategoryItem: FC<CategoryProps> = ({ category }) => {
 
+  const { id, name, color, selected } = category
   const [deleteCategory] = categoryApi.useDeleteCategoryMutation()
+  const [updateCategory] = categoryApi.useUpdateCategoryMutation()
   const [isUpdateVisible, setIsUpdateVisible] = useState(false)
 
   const deleteHandler = () => {
-    deleteCategory(category.id)
+    deleteCategory(id)
   }
 
   const createSubmitHandler = () => {
     setIsUpdateVisible(false)
+  }
+
+  const selectHandler = () => {
+    updateCategory({ id, selected: !selected })
   }
 
   return (
@@ -36,27 +42,24 @@ export const CategoryItem: FC<CategoryProps> = ({ category }) => {
 
       <div className={s.container}>
         <span
-          className={s.color}
-          style={{ backgroundColor: category.color ?? '#dfdfdf' }}
-        />
+          className={classNames(s.color, { [s.notSelected]: !selected })}
+          style={{
+            backgroundColor: color ?? '#dfdfdf',
+            borderColor: color ?? '#dfdfdf'
+          }}
+          onClick={selectHandler}
+        >
+          <i className='ph-check-bold' />
+        </span>
         <span className={s.name}>
-          {category.name}
+          {name}
         </span>
       </div>
 
-      <Popover
-        placement='right'
-        trigger='hover'
-        overlayClassName={s.actionsModal}
-        content={(
-          <div className={s.actions}>
-            <span onClick={deleteHandler}>Удалить</span>
-            <span onClick={() => setIsUpdateVisible(true)}>Изменить</span>
-          </div>
-        )}
-      >
-        <span className={s.actionsIcon}><i className='ph-dots-three-vertical-bold' /></span>
-      </Popover>
+      <ActionsPopover
+        onDelete={deleteHandler}
+        onUpdate={() => setIsUpdateVisible(true)}
+      />
     </div>
   )
 }

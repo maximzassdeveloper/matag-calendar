@@ -7,6 +7,17 @@
   background: #fff;
   border: 1px solid @border-color-base;
   transition: .2s;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10px rgba(#000, .1);
+  }
+  .noselect
+}
+
+.itemArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .color {
@@ -21,4 +32,8 @@
   margin-left: auto;
   color: @grey-2;
   font-weight: 500;
+}
+
+.actionsIcon {
+  margin-left: 15px !important;
 }

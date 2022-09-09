@@ -12,7 +12,7 @@ interface EventPreviewProps {
 export const EventPreview: FC<EventPreviewProps> = ({ event }) => {
 
   const [deleteEvent] = eventApi.useDeleteEventMutation()
-  const { closeEventModal, changeEventModalType } = useActions()
+  const { closeEventModal, openEventEditModal } = useActions()
 
   const deleteHandler = () => {
     deleteEvent(event.id)
@@ -20,7 +20,7 @@ export const EventPreview: FC<EventPreviewProps> = ({ event }) => {
   }
 
   const changeHandler = () => {
-    changeEventModalType('edit')
+    openEventEditModal(event)
   }
 
   return (

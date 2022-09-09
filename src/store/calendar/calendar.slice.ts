@@ -29,30 +29,35 @@ const calendarSlice = createSlice({
   name: 'calendar',
   initialState,
   reducers: {
-    changeSelectedDate(state: ICalendarState, action: PayloadAction<Date>) {
-      state.selectedDate = action.payload
-    },
-    changeSelectedEvent(state: ICalendarState, action: PayloadAction<IEvent | null>) {
-      state.selectedEvent = action.payload
-    },
-    changeEventModalType(state: ICalendarState, action: PayloadAction<ModalEventType>) {
-      state.modalEventType = action.payload
-    },
-    openEventModal(state: ICalendarState) {
-      state.isEventModalVisible = true
-    },
     closeEventModal(state: ICalendarState) {
       state.isEventModalVisible = false
       state.selectedEvent = null
       state.modalEventType = 'none'
     },
 
+    openEventPreviewModal(state: ICalendarState, action: PayloadAction<IEvent>) {
+      state.isEventModalVisible = true
+      state.selectedEvent = action.payload
+      state.modalEventType = 'preview'
+    },
+    openEventEditModal(state: ICalendarState, action: PayloadAction<IEvent>) {
+      state.isEventModalVisible = true
+      state.selectedEvent = action.payload
+      state.modalEventType = 'edit'
+    },
+    openEventCreateModal(state: ICalendarState, action: PayloadAction<Date>) {
+      state.isEventModalVisible = true
+      state.selectedDate = action.payload
+      state.modalEventType = 'create'
+    },
+
     changeCalendarDate(state: ICalendarState, action: PayloadAction<Date>) {
       state.calendarDate = action.payload
     },
 
-    openDayModal(state: ICalendarState) {
+    openDayModal(state: ICalendarState, action: PayloadAction<Date>) {
       state.isDayModalVisible = true
+      state.selectedDate = action.payload
     },
     closeDayModal(state: ICalendarState) {
       state.isDayModalVisible = false

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useActions } from '@/hooks/useActions'
-import s from './header.module.less'
+import s from './user.module.less'
 
 interface HeaderUserMenuProps {
 	isAuth: boolean
@@ -18,8 +18,8 @@ export const HeaderUserMenu: FC<HeaderUserMenuProps> = ({
 	}
 
 	return (
-		<div className={s.userMenu}>
-			<span className={s.userMenuItem} onClick={authHandler}>
+		<div className={s.menu}>
+			<span className={s.menuItem} onClick={authHandler}>
 				{isAuth ? 'Logout' : 'Login'}
 			</span>
 		</div>

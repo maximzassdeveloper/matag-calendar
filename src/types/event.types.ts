@@ -17,4 +17,7 @@ export interface ICategory {
   slug: string
   name: string
   color: string
+  selected: boolean
+
+  userId?: number
 }

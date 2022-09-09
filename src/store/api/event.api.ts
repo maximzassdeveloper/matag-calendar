@@ -3,7 +3,8 @@ import { IEvent } from '@/types/event.types'
 
 interface GetEventsParams {
   date?: Date | string
-  cats?: number[]
+  catsFilter?: boolean
+  search?: string
 }
 
 export const eventApi = emptySplitApi.injectEndpoints({
@@ -23,7 +24,7 @@ export const eventApi = emptySplitApi.injectEndpoints({
       }),
       invalidatesTags: ['Event']
     }),
-    updateEvent: build.mutation<IEvent, IEvent>({
+    updateEvent: build.mutation<IEvent, Partial<IEvent>>({
       query: event => ({
         url: `/events/update/${event.id}`,
         method: 'PUT',

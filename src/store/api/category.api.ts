@@ -15,7 +15,7 @@ export const categoryApi = emptySplitApi.injectEndpoints({
       }),
       invalidatesTags: ['Category']
     }),
-    updateCategory: build.mutation<ICategory, ICategory>({
+    updateCategory: build.mutation<ICategory, Partial<ICategory>>({
       query: cat => ({
         url: `/categories/update/${cat.id}`,
         method: 'PUT',
